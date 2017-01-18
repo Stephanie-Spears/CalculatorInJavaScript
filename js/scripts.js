@@ -2,73 +2,85 @@ var getInput = function() {
   var getChoice = parseInt(prompt("Choose operation by index option. \n1. + \n2. - \n3. / \n4. * \n"));
   var getNumber1 = parseInt(prompt("Enter first number:"));
   var getNumber2 = parseInt(prompt("Enter second number: "));
-  return [getNumber1, getNumber2, getChoice];
+  return [getChoice, getNumber1, getNumber2];
 };
 
 var userInputArray = getInput();
+var userChoice = userInputArray[0];
+var num1= userInputArray[1];
+var num2= userInputArray[2];
+var lowRange = 1;
+var highRange = 4;
 
-var num1= userInputArray[0]; //first number i enter
-var num2= userInputArray[1]; //second number i enter
-var userChoice = userInputArray[2];
-alert("userInputArray[0] = " + num1);
-alert("userInputArray[1] = " + num2);
-alert("userInputArray[2] = " + userChoice);
+function checkInput(userInputArray) {
+  for (var i = 0; i < userInputArray.length; i++) {
+    if (isNaN(userInputArray[i])) {
+      alert("user input of '" + userInputArray[i] + "[" + i + "]" + "' is NOT A NUMBER");
+      return false;
+    }
+    else if (i === 0) {
+      if (lowRange > userInputArray[i] || userInputArray[i] > highRange) {
+        alert("user input of '" + userInputArray[i] + "' is not within options range of " + lowRange + " and " + highRange);
+        return false;
+      }
+    }
+    else if (i === (userInputArray.length - 1)) {
+      alert("Each item in the array has been validated");
+      return true;
+    }
+  }
+}
 
+var cleanInput = checkInput(userInputArray);
 
-alert(userInputArray);
+while (cleanInput === false) {
+  alert("userInput returned false");
+  alert("invalid choice. TRY AGAIN!");
+  var userInputArray = getInput();
+  var num1= userInputArray[1];
+  var num2= userInputArray[2];
+  var userChoice = userInputArray[0];
+  var cleanInput = checkInput(userInputArray);
+}
 
-// if (userInputArray[2] === 1)
-// {
-//   var add = function(num1, num2) {
-//     alert(num1 + " + " + num2 + " = ");
-//     return num1 + num2;
-//   };
-// }
-// else if (userInputArray[3] === 2) {
-//   var subtract = function(num1, num2) {
-//     alert(num1 + " - " + num2 + " = ");
-//     return num1 - num2;
-//   };
-// }
-// else if (userInputArray[3] === 3) {
-//   var divide = function(num1, num2) {
-//     alert(num1 + " / " + num2 + " = ");
-//     return num1 / num2;
-//   };
-// }
-// else if (userInputArray[3] === 4) {
-//   var multiply = function(num1, num2) {
-//     alert(num1 + " x " + num2 + " = ");
-//     return num1 * num2;
-//   };
-// }
+if(cleanInput === true) {
+  alert("it was true");
+}
 
+var add = function(num1, num2) {
+  alert(num1 + " + " + num2 + " = ");
+  return num1 + num2;
+};
 
+var subtract = function(num1, num2) {
+  alert(num1 + " - " + num2 + " = ");
+  return num1 - num2;
+};
+var divide = function(num1, num2) {
+  alert(num1 + " / " + num2 + " = ");
+  return num1 / num2;
+};
+var multiply = function(num1, num2) {
+  alert(num1 + " x " + num2 + " = ");
+  return num1 * num2;
+};
 
-//
-//
-// result(add);
-// result(subtract);
-// result(divide);
-// result(multiply);
-//
-//
-// var result = add(num1, num2);
-// alert(result);
-// var result = subtract(num1, num2);
-// alert(result);
-// var result = divide(num1, num2);
-// alert(result);
-// var result = multiply(num1, num2);
-// alert(result);
-
-
-// var number1 = parseInt(prompt("Enter a number:"));
-// var getNumber2 = parseInt(prompt("Enter another number:"));
-
-// var subtract = function(number1, number2) {
-//   return number1 - number2;
-// };
-//
-// var result = subtract(number1, number2);
-// alert(result);
+if (userChoice === 1) {
+  var result = add(num1, num2);
+  alert(result);
+}
+else if (userChoice === 2) {
+  var result = subtract(num1, num2);
+  alert(result);
+}
+else if (userChoice === 3) {
+  var result = divide(num1, num2);
+  alert(result);
+}
+else if (userChoice === 4) {
+  var result = multiply(num1, num2);
+  alert(result);
+}
+else {
+  alert("UNKNOWN ERROR.");
+}
