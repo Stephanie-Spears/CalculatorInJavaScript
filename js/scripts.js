@@ -11,7 +11,14 @@ var num1= userInputArray[1];
 var num2= userInputArray[2];
 var lowRange = 1;
 var highRange = 4;
+var calculateNum = [
+  function (num1, num2) {return num1 + num2;},
+  function (num1, num2) {return num1 - num2;},
+  function (num1, num2) {return num1 / num2;},
+  function (num1, num2) {return num1 * num2;},
+];
 
+// input allows for decimals (ie. 1.2 is accepted. Specify non-floating point? setPrecision funct?)
 function checkInput(userInputArray) {
   for (var i = 0; i < userInputArray.length; i++) {
     if (isNaN(userInputArray[i])) {
@@ -42,45 +49,54 @@ while (cleanInput === false) {
   var userChoice = userInputArray[0];
   var cleanInput = checkInput(userInputArray);
 }
-
 if(cleanInput === true) {
-  alert("it was true");
+  alert("User input has been validated");
 }
+var calcSymb = ["+", "-", "/", "*"];
 
-var add = function(num1, num2) {
-  alert(num1 + " + " + num2 + " = ");
-  return num1 + num2;
-};
+var displayCalcOperation = function (num1, num2) {
+  alert(num1 + calcSymb[userChoice-1] + num2 + " = ");
+  var numValue = calculateNum[userChoice-1](num1, num2);
+  alert(numValue);
 
-var subtract = function(num1, num2) {
-  alert(num1 + " - " + num2 + " = ");
-  return num1 - num2;
-};
-var divide = function(num1, num2) {
-  alert(num1 + " / " + num2 + " = ");
-  return num1 / num2;
-};
-var multiply = function(num1, num2) {
-  alert(num1 + " x " + num2 + " = ");
-  return num1 * num2;
 };
 
-if (userChoice === 1) {
-  var result = add(num1, num2);
-  alert(result);
-}
-else if (userChoice === 2) {
-  var result = subtract(num1, num2);
-  alert(result);
-}
-else if (userChoice === 3) {
-  var result = divide(num1, num2);
-  alert(result);
-}
-else if (userChoice === 4) {
-  var result = multiply(num1, num2);
-  alert(result);
-}
-else {
-  alert("UNKNOWN ERROR.");
-}
+displayCalcOperation(num1, num2);
+
+
+// var add = function(num1, num2) {
+//   // alert(num1 + calculatorSymbol[0] + num2 + calculatorSymbol[4]);
+//   return num1 + num2;
+// };
+// var subtract = function(num1, num2) {
+//   alert(num1 + " - " + num2 + " = ");
+//   return num1 - num2;
+// };
+// var divide = function(num1, num2) {
+//   alert(num1 + " / " + num2 + " = ");
+//   return num1 / num2;
+// };
+// var multiply = function(num1, num2) {
+//   alert(num1 + " x " + num2 + " = ");
+//   return num1 * num2;
+// };
+//
+// if (userChoice === 1) {
+//   var result = add(num1, num2);
+//   alert(result);
+// }
+// else if (userChoice === 2) {
+//   var result = subtract(num1, num2);
+//   alert(result);
+// }
+// else if (userChoice === 3) {
+//   var result = divide(num1, num2);
+//   alert(result);
+// }
+// else if (userChoice === 4) {
+//   var result = multiply(num1, num2);
+//   alert(result);
+// }
+// else {
+//   alert("UNKNOWN ERROR.");
+// }
