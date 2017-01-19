@@ -62,20 +62,35 @@ var displayCalcOperation = function (num1, num2) {
 
 displayCalcOperation(num1, num2);
 
-// $(function() {
-//   $(".secret").click(function() {
-//     $(".clickable").toggle();
-//   });
-// });
-
-<script src>
-
 $(function() {
-    $( "#button" ).click(function() {
-        $( "#item" ).toggle();
+    $( "#button1" ).click(function() {
+        $( "#item1" ).toggle();
     });
 });
-</script>
+
+$(function() {
+    $( "#button2" ).click(function() {
+        $( "#item2" ).toggle();
+    });
+});
+$(function() {
+    $( "#button3" ).click(function() {
+        $( "#item3" ).toggle();
+    });
+});
+
+
+// $(function() {
+//     $( "#button" ).click(function() {
+//         $( "#item2" ).toggle();
+//     });
+// });
+// $(function() {
+//     $( "#button" ).click(function() {
+//         $( "#item3" ).toggle();
+//     });
+// });
+
 // In case you are interested in a jQuery soluton:
 //
 // This is the HTML

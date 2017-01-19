@@ -12,17 +12,13 @@
   background: linear-gradient(320deg, red, yellow);
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
   background-repeat: no-repeat;
   background-image: url("../img/rainman.jpg");
   background-position: center;
   background-size: cover;
   margin-bottom: 60px;
+  max-height: 100%;
 }
 
 .header, .footer {
@@ -36,28 +32,41 @@ body {
   color: #0088cc;
 }
 
-p.secret {
-  display: none;
-}
-
-/*
-.clickable {
-  color: purple;
+#button1, #button2, #button3 {
+  color: lightgreen;
   cursor: pointer;
 }
 
-.reveal {
+#item1, #item2, #item3 {
   display: none;
 }
+#item1 {
+  /*float: left;*/
+  font-size: 3em;
+  color: powderblue;
+}
+#item2 {
+  /*float-right;*/
+  font-size: 3em;
+  color: aquamarine;
+}
+#item3 {
+  /*float: down;*/
+  font-size: 3em;
+  color: aqua;
+}
 
-h4.reveal {
-  color: purple;
-}*/
+.img-responsive {
+  max-width: 10%;
+}
+
+div.errorMsg {
+  max-width: 65%;
+}
 
 .visualCalc {
   text-align: center;
   width: 300px;
   height: 100px;
   border: 1px solid blue;
-  /*box-sizing: border-box;*/
 }
