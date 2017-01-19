@@ -19,15 +19,16 @@ var calculateNum = [
 ];
 
 // input allows for decimals (ie. 1.2 is accepted. Specify non-floating point? setPrecision funct?)
+// Should make it immediately check input and only store the int in the array if it's valid...return false immediately, so user doesn't have to go through the motions of finishing input if the first num is wrong
 function checkInput(userInputArray) {
   for (var i = 0; i < userInputArray.length; i++) {
     if (isNaN(userInputArray[i])) {
-      // alert("user input of '" + userInputArray[i] + "[" + i + "]" + "' is NOT A NUMBER");
+      alert("RAY SAYS user input of '" + userInputArray[i] + "[" + i + "]" + "' is NOT A NUMBER");
       return false;
     }
     else if (i === 0) {
       if (lowRange > userInputArray[i] || userInputArray[i] > highRange) {
-        // alert("user input of '" + userInputArray[i] + "' is not within options range of " + lowRange + " and " + highRange);
+        alert("RAY SAYS 'YA RETAAAD'ED OR SOMTHIN??" + "...and he says user input of '" + userInputArray[i] + "' is not within options range of " + lowRange + " and " + highRange);
         return false;
       }
     }
@@ -41,8 +42,8 @@ function checkInput(userInputArray) {
 var cleanInput = checkInput(userInputArray);
 
 while (cleanInput === false) {
-  // alert("userInput returned false");
   alert("invalid choice. TRY AGAIN!");
+
   var userInputArray = getInput();
   var num1= userInputArray[1];
   var num2= userInputArray[2];
@@ -61,8 +62,51 @@ var displayCalcOperation = function (num1, num2) {
 
 displayCalcOperation(num1, num2);
 
+// $(function() {
+//   $(".secret").click(function() {
+//     $(".clickable").toggle();
+//   });
+// });
+
+<script src>
+
 $(function() {
-  $(".secret").click(function() {
-    $(".clickable").toggle();
-  });
+    $( "#button" ).click(function() {
+        $( "#item" ).toggle();
+    });
 });
+</script>
+// In case you are interested in a jQuery soluton:
+//
+// This is the HTML
+//
+// <a id="button" href="#">Show/Hide</a>
+// <div id="item">Item</div>
+// This is the jQuery script
+//
+// $( "#button" ).click(function() {
+//     $( "#item" ).toggle();
+// });
+// You can see it working here:
+//
+// http://jsfiddle.net/BQUyT/
+//
+// If you don't know how to use jQuery, you have to use this line to load the library:
+//
+// <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+// And then use this line to start:
+//
+// <script>
+// $(function() {
+//     // code to fire once the library finishes downloading.
+// });
+// </script>
+// So for this case the final code would be this:
+//
+// <script>
+// $(function() {
+//     $( "#button" ).click(function() {
+//         $( "#item" ).toggle();
+//     });
+// });
+// </script>
